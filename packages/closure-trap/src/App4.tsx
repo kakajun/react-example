@@ -1,29 +1,24 @@
 import { useEffect, useState, useRef, useCallback, useLayoutEffect } from 'react';
 
 function useInterval(fn: Function, time: number) {
-    const ref = useRef(fn);
+    const savedFn = useRef(fn);
 
-    useLayoutEffect(() => {
-        ref.current = fn;
-    });
-
-    let cleanUpFnRef = useRef<Function>();
-    
-    const clean = useCallback(() =>{
-        cleanUpFnRef.current?.();
-    }, []);
+    // 确保每次 fn 更新时，savedFn.current 都是最新的 fn
+    useEffect(() => {
+        savedFn.current = fn;
+    }, [fn]);
 
     useEffect(() => {
-        const timer = setInterval(() => ref.current(), time);
+        const tick = () => savedFn.current();
+        console.log("1");
+        const timer = setInterval(tick, time);
 
-        cleanUpFnRef.current = ()=> {
-            clearInterval(timer);
-        }
+        return () =>{
+            console.log("销毁");
 
-        return clean;
-    }, []);
-
-    return clean;
+            clearInterval(timer)
+        };
+    }, [time]);
 }
 
 function App() {

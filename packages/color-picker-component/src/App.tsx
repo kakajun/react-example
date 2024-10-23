@@ -1,5 +1,4 @@
 import React, { ChangeEventHandler, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ColorPickerPanel from './ColorPicker/ColorPickerPanel';
 import { Color } from './ColorPicker/color';

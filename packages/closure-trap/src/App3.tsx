@@ -13,9 +13,12 @@ function App() {
     });
 
     useEffect(() => {
+        console.log(count);
         const timer = setInterval(() => ref.current(), 1000);
 
         return () => {
+            console.log("销毁");
+
             clearInterval(timer);
         }
     }, []);

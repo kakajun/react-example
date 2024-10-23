@@ -12,6 +12,7 @@ function App() {
         }, 1000);
 
         return () => {
+            console.log('销毁');
             clearInterval(timer);
         }
     }, [count]);
