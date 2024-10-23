@@ -12,7 +12,7 @@ interface MonthCalendarProps extends CalendarProps {
 
 function getAllDays(date: Dayjs) {
     const startDate = date.startOf('month');
-    const day = startDate.day()    
+    const day = startDate.day()
 
     const daysInfo: Array<{date: Dayjs, currentMonth: boolean}> = new Array(6 * 7);
 
@@ -39,7 +39,6 @@ function getAllDays(date: Dayjs) {
 function MonthCalendar(props: MonthCalendarProps) {
 
     const localeContext = useContext(LocaleContext);
-    
     const {
         value,
         curMonth,
