@@ -2,7 +2,7 @@ import React, { CSSProperties, FC, MutableRefObject, ReactNode, forwardRef, useE
 import useStore, { MessageList } from "./useStore";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-// import './index.scss';
+import './index.scss';
 import { createPortal } from "react-dom";
 import { useTimer } from "./useTimer";
 

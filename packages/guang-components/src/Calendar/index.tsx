@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import MonthCalendar from './MonthCalendar';
-// import './index.scss';
+import './index.scss';
 import Header from './Header';
 import React, { CSSProperties, ReactNode, useState } from 'react';
 import cs from 'classnames';
@@ -48,7 +48,7 @@ function Calendar(props: CalendarProps) {
     function nextMonthHandler() {
         setCurMonth(curMonth.add(1, 'month'));
     }
-    
+
     function todayHandler() {
         const date = dayjs(Date.now());
 
@@ -61,7 +61,7 @@ function Calendar(props: CalendarProps) {
         locale: locale || navigator.language
     }}>
         <div className={classNames} style={style}>
-            <Header curMonth={curMonth} 
+            <Header curMonth={curMonth}
                 prevMonthHandler={prevMonthHandler}
                 nextMonthHandler={nextMonthHandler}
                 todayHandler={todayHandler}
