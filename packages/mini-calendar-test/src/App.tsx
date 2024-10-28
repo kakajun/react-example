@@ -24,16 +24,16 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
     defaultValue: new Date()
   });
 
-  useImperativeHandle(ref, () => {
-    return {
-      getDate() {
-        return date;
-      },
-      setDate(date: Date) {
-        setDate(date)
-      }
-    }
-  });
+  // useImperativeHandle(ref, () => {
+  //   return {
+  //     getDate() {
+  //       return date;
+  //     },
+  //     setDate(date: Date) {
+  //       setDate(date)
+  //     }
+  //   }
+  // });
 
   const handlePrevMonth = () => {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
@@ -81,9 +81,9 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
         const curDate = new Date(date.getFullYear(), date.getMonth(), i);
         setDate(curDate);
       }
-    
+
       if(i === date.getDate()) {
-        days.push(<div key={i} className="day selected" onClick={() => clickHandler()}>{i}</div>);  
+        days.push(<div key={i} className="day selected" onClick={() => clickHandler()}>{i}</div>);
       } else {
         days.push(<div key={i} className="day" onClick={() => clickHandler()}>{i}</div>);
       }

@@ -1,13 +1,15 @@
 import { addEdge, Background, BackgroundVariant, BaseEdge, Connection, Controls, EdgeLabelRenderer, EdgeProps, getBezierPath, getStraightPath, Handle, MiniMap, OnConnect, Panel, Position, ReactFlow, useEdgesState, useNodesState, useReactFlow } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import logic from './logic/index.js';
+console.log(logic,"lllllll");
+
 
 const initialNodes = [
   { id: '1', position: { x: 0, y: 0 }, type: 'red', data: { label: '1' } },
   { id: '2', position: { x: 200, y: 300 }, type: 'blue', data: { label: '2' } },
 ];
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2', type: 'custom' }];
- 
+
 interface NodePorps {
   data: {
     label: string
@@ -43,7 +45,7 @@ function CustomEdge({
   markerEnd,
 }: EdgeProps) {
 
-  
+
   const { setEdges } = useReactFlow();
 
   // const [edgePath, labelX, labelY] = getBezierPath({
@@ -90,16 +92,16 @@ function CustomEdge({
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
- 
+
   const onConnect = (params: Connection) => {
     setEdges((eds) => addEdge(params, eds))
   }
-  debugger;
-  logic();
+
+  // logic();
 
   return (
     <div style={{ width: '800px', height: '500px', border: '1px solid #000', margin: '50px auto' }}>
-      <ReactFlow 
+      <ReactFlow
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
@@ -118,10 +120,10 @@ export default function App() {
         <Background variant={BackgroundVariant.Lines}/>
         <Panel position="top-right">
           <button onClick={() => {
-            setNodes([...nodes, { 
-              id: Math.random().toString().slice(2,6) + '', 
-              type: 'red', 
-              position: { x: 0, y: 0 }, 
+            setNodes([...nodes, {
+              id: Math.random().toString().slice(2,6) + '',
+              type: 'red',
+              position: { x: 0, y: 0 },
               data: {
                 label: '光'
             }}])

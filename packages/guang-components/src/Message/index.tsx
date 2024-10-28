@@ -49,15 +49,6 @@ export const MessageProvider = forwardRef<MessageRef, {}>((props, ref) => {
             clearAll
         }
     }
-    // useImperativeHandle(ref, () => {
-    //     return {
-    //         add,
-    //         update,
-    //         remove,
-    //         clearAll
-    //     }
-    // }, [])
-
     const positions = Object.keys(messageList) as Position[];
 
     const messageWrapper = <div className="message-wrapper">

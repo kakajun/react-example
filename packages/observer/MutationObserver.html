@@ -16,7 +16,9 @@
 
     <script>
         const box = document.getElementById('box');
-
+        // MutationObserver 是一个非常强大的工具，可以用来监听 DOM 元素的各种变化，
+        // 包括属性变化、子节点的添加和删除等。
+        // 通过这种方式，可以在 DOM 发生变化时执行特定的操作，例如更新界面、记录日志等。
         const mutationObserver = new MutationObserver((mutationsList) => {
             console.log(mutationsList)
         });

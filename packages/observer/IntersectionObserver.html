@@ -22,6 +22,8 @@
     <div id="box1">BOX111</div>
     <div id="box2">BOX222</div>
     <script>
+        // IntersectionObserver 是一个非常有用的 API，
+        // 可以高效地监听元素与视口的交集情况，常用于实现懒加载、无限滚动、动画效果和统计分析等功能。
         const intersectionObserver = new IntersectionObserver(
             function (entries) {
                 console.log('info:');
